@@ -1,0 +1,175 @@
+/* src/index.css — calm pastel theme + improved quick-actions layout */
+:root{
+  --bg-1: #fff9f8;    /* warm paper */
+  --bg-2: #f7fbff;    /* cool sky */
+  --panel: #ffffff;
+  --muted: #6b7280;
+  --text: #0f172a;
+  --brand-warm: #FFEDE7; /* warm accent */
+  --brand-calm: #EAF7FF; /* calm blue */
+  --accent: #FFDDE1;
+  --primary: #d9534f;   /* gentle red for urgent actions */
+  --soft: #f2f4f8;
+  --shadow: 0 6px 20px rgba(12, 15, 20, 0.06);
+  --glass: rgba(255,255,255,0.7);
+}
+
+/* Global */
+*{box-sizing:border-box;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;}
+body,html,#root{height:100%;margin:0;background:linear-gradient(180deg,var(--bg-1),var(--bg-2));color:var(--text);}
+
+.chat-root { max-width:1100px;margin:22px auto;padding:14px; }
+.app-header{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;background:linear-gradient(90deg,#fff,#fff);border-radius:12px;margin-bottom:14px;box-shadow:var(--shadow)}
+.brand{display:flex;gap:12px;align-items:center}
+.logo{width:48px;height:48px;border-radius:12px;background:linear-gradient(180deg,var(--brand-warm),#fff3f1);display:flex;align-items:center;justify-content:center;font-size:20px}
+.title{font-weight:700}
+.subtitle{font-size:13px;color:var(--muted)}
+
+.chat-main{display:flex;gap:16px}
+.chat-left{width:260px;display:flex;flex-direction:column;gap:12px}
+.info-card{
+  background:linear-gradient(180deg, rgba(255,255,255,0.9), var(--panel));
+  padding:14px;border-radius:12px;box-shadow:var(--shadow);
+  border:1px solid rgba(16,24,40,0.03);
+}
+
+/* Quick actions — improved look */
+.quick-actions {
+  display:flex;flex-direction:column;gap:10px;
+}
+.quick-item{
+  display:flex;gap:12px;align-items:flex-start;padding:12px;border-radius:10px;
+  background: linear-gradient(180deg, rgba(250,250,255,0.6), rgba(255,255,255,0.8));
+  border: 1px solid rgba(16,24,40,0.03);
+}
+.quick-item .icon{
+  min-width:44px;min-height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;
+  background: linear-gradient(180deg, var(--brand-calm), #ebf8ff);font-size:18px;
+  box-shadow: 0 2px 8px rgba(50,80,120,0.06);
+}
+.quick-item .meta { display:flex;flex-direction:column; }
+.quick-item .meta .label{ font-weight:600; font-size:14px; color: #123; }
+.quick-item .meta .desc{ font-size:13px; color:var(--muted); margin-top:4px; line-height:1.25; }
+
+/* secondary small CTA row in quick actions */
+.quick-ctas{display:flex;gap:8px;margin-top:10px}
+/* Soft pastel button styles — lighter and calmer */
+.btn {
+  background: linear-gradient(180deg, #ffffff, #fafafa);
+  border: 1px solid rgba(0,0,0,0.05);
+  padding: 10px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  color: #3b4252;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+}
+
+/* Hover state — very light */
+.btn:hover {
+  background: linear-gradient(180deg, #ffffff, #f3f8ff);
+  border-color: rgba(60,100,200,0.15);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(120,150,255,0.15);
+}
+
+/* Active state — soft press */
+.btn:active {
+  transform: scale(0.97);
+}
+
+/* Light Blue — calming / non-urgent actions */
+.btn-calm {
+  background: linear-gradient(180deg, #f8fbff, #eef8ff);
+  border: 1px solid rgba(90, 160, 240, 0.20);
+  color: #0b4c6c;
+}
+
+.btn-calm:hover {
+  background: linear-gradient(180deg, #ffffff, #f4faff);
+  border-color: rgba(90, 160, 240, 0.30);
+  box-shadow: 0 4px 12px rgba(80, 140, 240, 0.15);
+}
+
+/* Light Pink — warm, gentle actions */
+.btn-primary {
+  background: linear-gradient(180deg, #fff7f7, #ffecec);
+  border: 1px solid rgba(220, 100, 100, 0.20);
+  color: #6e2c2c;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(180deg, #fffdfd, #fff2f2);
+  border-color: rgba(220, 100, 100, 0.35);
+  box-shadow: 0 4px 12px rgba(255, 150, 150, 0.18);
+}
+
+/* Soft grey — secondary, neutral buttons */
+.btn-soft {
+  background: linear-gradient(180deg, #ffffff, #f7f7f7);
+  border: 1px solid rgba(0,0,0,0.06);
+  color: #4a4f5a;
+}
+
+.btn-soft:hover {
+  background: linear-gradient(180deg, #ffffff, #fcfcfc);
+  border-color: rgba(0,0,0,0.10);
+}
+
+/* Light Red (but gentle) — crisis-related buttons */
+.btn-danger {
+  background: linear-gradient(180deg, #fff5f5, #ffe8e8);
+  border: 1px solid rgba(255, 120, 120, 0.25);
+  color: #842020;
+}
+
+.btn-danger:hover {
+  background: linear-gradient(180deg, #fffafa, #ffecec);
+  box-shadow: 0 4px 12px rgba(255,120,120,0.18);
+}
+
+/* Smaller variant */
+.btn.small {
+  font-size: 13px;
+  padding: 7px 10px;
+}
+
+/* core chat panel */
+.chat-panel{flex:1;display:flex;flex-direction:column}
+.messages{background:var(--panel);padding:18px;border-radius:14px;min-height:360px;max-height:60vh;overflow:auto;box-shadow:var(--shadow)}
+.empty{color:var(--muted);text-align:center;padding:20px}
+
+.msg-row{display:flex;align-items:flex-end;margin-bottom:14px}
+.msg-left{justify-content:flex-start}
+.msg-right{justify-content:flex-end}
+
+.avatar{width:44px;height:44px;border-radius:12px;background:linear-gradient(90deg,#fff,#f8fbff);display:flex;align-items:center;justify-content:center;font-weight:700;color:#0f172a;border:1px solid rgba(16,24,40,0.03);margin:0 10px}
+.avatar.user{background:linear-gradient(90deg,#d7f3ff,#bfeaff)}
+
+.bubble{max-width:72%;padding:12px 14px;border-radius:14px;position:relative}
+.bubble-assistant{background:linear-gradient(180deg,#ffffff,#fbfbff);border:1px solid rgba(16,24,40,0.03)}
+.bubble-user{background:linear-gradient(180deg,#e6f7ff,#d6f1ff);border:1px solid rgba(13,100,160,0.08)}
+
+.bubble-text{white-space:pre-wrap; color:var(--text)}
+.bubble-meta{font-size:11px;color:var(--muted);margin-top:8px;text-align:right}
+
+.composer{display:flex;gap:12px;align-items:center;margin-top:12px;padding-top:12px;border-top:1px dashed rgba(15,23,42,0.03)}
+.composer-input{flex:1;padding:12px;border-radius:12px;border:1px solid rgba(15,23,42,0.06);background:linear-gradient(180deg,#fff,#fcfdff)}
+.composer-actions{display:flex;gap:8px}
+
+.assistant-typing{padding-left:6px;margin-bottom:6px}
+
+.typing{display:flex;gap:6px;align-items:center;margin-left:6px}
+.typing .dot{width:8px;height:8px;border-radius:50%;background:#cbd5e1;animation:blink 1s infinite}
+.typing .dot:nth-child(2){animation-delay:.15s}
+.typing .dot:nth-child(3){animation-delay:.3s}
+@keyframes blink{0%{opacity:0.2;transform:translateY(0)}50%{opacity:1;transform:translateY(-4px)}100%{opacity:0.2;transform:translateY(0)}}
+
+/* responsive tweaks */
+@media (max-width:900px){
+  .chat-main{flex-direction:column}
+  .chat-left{width:auto;order:2}
+  .chat-panel{order:1}
+  .messages{min-height:52vh}
+}
